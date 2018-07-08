@@ -118,6 +118,7 @@
       ChessBoard(boardId, {
         draggable: true,
         dropOffBoard: 'snapback',
+        pieceTheme: 'images/chesspieces/wikipedia/{piece}.png',
         position: position,
         // Per instructions, only white can move.
         onDragStart: this.validateMove,

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-us" dir="ltr" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+    <title><%= current_page.data.title %></title>
+
+    <%= stylesheet_link_tag "site" %>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-121983203-1"
+        async ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-121983203-1');
+    </script>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <%= javascript_include_tag "vendor/jquery-3.3.1.min.js" %>
+    <%= javascript_include_tag "vendor/chessboard-0.3.0.min.js" %>
+    <%= javascript_include_tag "vendor/chess.min.js" %>
+    <%= javascript_include_tag "mateinone" %>
+  </body>
+</html>

@@ -8,3 +8,12 @@ Thumbs.db
 
 # Text editor things (should really be in a global .gitignore).
 *.sublime-*
+
+# Credentials
+.ftppass
+
+# Middleman generated things
+.bundle
+.cache
+.sass-cache
+build/
