@@ -1,0 +1,10 @@
+# Include your project-specific ignores in this file.
+# Read about how to use .gitignore:
+# https://help.github.com/articles/ignoring-files
+
+# OS generated files (should really be in a global .gitignore).
+.DS_STORE
+Thumbs.db
+
+# Text editor things (should really be in a global .gitignore).
+*.sublime-*
