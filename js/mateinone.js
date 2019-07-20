@@ -318,7 +318,7 @@
         onDragStart: this.validateMove,
         // Is the new position mate?
         onDrop: function (source, target, piece, newPos) {
-          return this.validateCheckMate(newPos, position);
+          return this.validateCheckMate(position, source, target);
         }.bind(this)
       });
     },
@@ -342,21 +342,45 @@
       return timer;
     },
 
-    validateCheckMate: function validateCheckMate (newPos, oldPos) {
-      var positionPieces = oldPos.split(' '),
-          chess,
+    /**
+     * @TODO: Document
+     */
+    normalizeFen: function normalizeFen (fen) {
+      fen = fen.split(' ');
+
+      if (!fen[4]) {
+        fen[4] = '0';
+      }
+
+      if (!fen[5]) {
+        fen[5] = '1';
+      }
+
+      return fen.join(' ');
+    },
+
+    validateCheckMate: function validateCheckMate (currPos, source, target) {
+      var chess,
+          move,
           nextMate;
 
-      positionPieces[0] = ChessBoard.objToFen(newPos);
-      positionPieces[1] = 'b';
-      if (positionPieces.length === 4) {
-        positionPieces[4] = '0';
-        positionPieces[5] = '1';
-      }
-      newPos = positionPieces.join(' ');
+      // Normalize FEN
+      currPos = this.normalizeFen(currPos);
 
-      chess = new Chess(newPos);
-      if (chess.game_over()) {
+      // Get a Chess.js object based on the current position.
+      chess = new Chess(currPos);
+
+      // Legal move? If not, snapback.
+      move = chess.move({
+        from: source,
+        to: target
+      });
+      if (!move) {
+        return 'snapback';
+      }
+
+      // Is this move a checkmate?
+      if (chess.in_checkmate()) {
         this.updateScore(this.$score, ++this.score);
         nextMate = this.getMate(this.mates);
         if (nextMate) {
