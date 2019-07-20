@@ -424,6 +424,10 @@
       // Reset board and then show first position.
       this.$board = $('#' + this.boardId);
       this.$board.html('').removeClass('hidden');
+      this.$board.on('scroll touchmove touchend touchstart contextmenu',
+          function(e) {
+        e.preventDefault();
+      });
       this.showBoard(this.boardId, this.getMate(this.mates));
 
       // Start the countdown.
