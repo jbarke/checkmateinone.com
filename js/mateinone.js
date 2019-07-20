@@ -327,7 +327,7 @@
 
     showFinalScore: function showFinalScore (score) {
       this.$board.html('<p class="final-score">You solved ' + score +
-          ' checkmates.</p>');
+          ' checkmate' + ((score === 1) ? '' : 's')  + '.</p>');
     },
 
     // scoreboard should be a jQuery wrapped set.
