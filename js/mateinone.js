@@ -321,6 +321,8 @@
           return this.validateCheckMate(position, source, target);
         }.bind(this)
       });
+      // Scroll to bottom
+      window.scrollTo(0, document.body.scrollHeight);
     },
 
     showFinalScore: function showFinalScore (score) {

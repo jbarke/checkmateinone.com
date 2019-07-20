@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Checkmate in one!</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon/queen.jpg">
 
     <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
@@ -25,16 +26,18 @@
   </head>
 
   <body>
-    <h1>White to move</h1>
-    <p>How many checkmates can you solve in one minute?</p>
+    <div class="container">
+      <h1>White to move</h1>
+      <p>How many checkmates can you solve in one minute?</p>
 
-    <div class="controls">
-      <button id="start" class="btn">Start!</button>
-      <div id="timer" class="timer hidden"></div>
-      <div id="score" class="score hidden"></div>
+      <div class="controls">
+        <button id="start" class="btn">Start!</button>
+        <div id="timer" class="timer hidden"></div>
+        <div id="score" class="score hidden"></div>
+      </div>
+
+      <div id="board" class="board hidden"></div>
     </div>
-
-    <div id="board" class="board hidden"></div>
 
     <script src="js/mateinone.js"></script>
   </body>

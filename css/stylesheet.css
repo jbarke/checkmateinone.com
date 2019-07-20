@@ -1,38 +1,56 @@
+html {
+  box-sizing: border-box;
+}
 *,
 *:before,
 *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 body {
   background-color: lightblue;
   color: #fff;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  margin: 0 20px;
+  padding: 0;
   text-align: center;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (orientation: portrait) {
+  .container {
+    width: 90vw;
+  }
+}
+@media (orientation: landscape) {
+  .container {
+    width: 70vh;
+  }
 }
 
 h1 {
   letter-spacing: 0.1em;
   margin-bottom: 0;
+  margin-top: 1em;
   text-transform: uppercase;
 }
 
 p {
+  margin-bottom: 1em;
   margin-top: 0;
+}
+
+.controls {
+  margin: 0 auto 2em;
+  position: relative;
 }
 
 .board {
   display: block;
   margin: 10px auto 30px;
-  width: 400px;
-}
-
-.controls {
-  margin: 0 auto;
-  position: relative;
-  width: 400px;
 }
 
 .btn,
@@ -51,7 +69,6 @@ p {
   margin: 0 auto;
   text-transform: uppercase;
   padding: 10px;
-  width: 100px;
 }
 .btn {
   cursor: pointer;
@@ -61,6 +78,7 @@ p {
   top: 0;
   position: absolute;
   transform: translate(-50%, 0);
+  width: 100px;
 }
 .score {
   color: #000;
